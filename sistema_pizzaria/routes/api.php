@@ -5,10 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/cadastrar', [UserController::class, 'store']);
 
-Route::prefix('/user')->group(function () {
+Route::prefix('/user')->group(function (){
     Route::get('/', [UserController::class, 'index']);
-    Route::get('/{id}', [UserController::class, 'show']);
-    Route::post('/', [UserController::class, 'store']);
-    Route::put('/{id}', [UserController::class, 'update']); // Rota PUT para atualizar
-    Route::delete('/{id}', [UserController::class, 'destroy']); // Rota DELETE para deletar
+    Route::put('/att/{id}', [UserController::class, 'update']);
+    Route::delete('/del/{id}', [UserController::class, 'destroy']);
 });
